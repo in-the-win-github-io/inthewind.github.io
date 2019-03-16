@@ -1,19 +1,26 @@
+// Person
 var x= 150
 var y= 500
-
+// Remote control
+var remoteX= 1224
+var remoteY= 530
 function setup() {}
 
 function draw() {
   createCanvas(1425,750)
   background(153)
   livingroom()
+  movement()
+  //remoteMovment()
 
 }
 function livingroom() {
   tv()
   windows()
   chair()
+  carpet()
   person()
+  remote()
 }
 function tv() {
 // the tv
@@ -22,12 +29,10 @@ rect(1315, 350, 50, 200)
 // the stand
 fill(102, 51, 0)
 rect(1224, 550, 200, 200)
-// the remote
-remote()
 }
 function remote() {
 fill(0,0,0)
-rect(1224, 530, 55, 20)
+rect(remoteX,remoteY, 55, 20)
 }
 function picture() {
 // right
@@ -60,14 +65,35 @@ rect(0,500,100,450)
 fill(0,0,0)
 rect(50,600,200,150)
 }
+function carpet() {
+  fill(255,255,255)
+  rect(0,700,1600,50)
+}
 function person() {
   fill(255,255,0)
   rect(x,y,100,100)
+
+}
+function movement(){
+  if(x<250){
   x=x+1
- if(x>=250) {
-   y=y+1
- }
- if(y>=650){
-  x= x+1
+  }
+  if(x==250){
+    y=y+1
+  }
+  if(y==600){
+    x=x+1
+  if(x>1000&&y==600){
+    //remoteMovment()
+    x=1000
+    y=600
+    if(x==1000&&y==600){
+    remoteX=remoteX-1
+  }
+    if(remoteX>1101){
+      remoteY=remoteY+1
+    }
+
+  }
 }
 }
